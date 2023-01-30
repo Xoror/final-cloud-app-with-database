@@ -120,6 +120,7 @@ def submit(request, course_id):
             choice_id = int(value)
             choice = Choice.objects.get(id=choice_id)
             submission.choices.add(choice)
+    submission.save()
     return redirect('onlinecourse:result', course_id=course_id, submission_id=submission.id)
 
 # <HINT> Create an exam result view to check if learner passed exam and show their question results and result for each question,
